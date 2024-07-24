@@ -7,7 +7,7 @@ import { BASE_URL } from '../BASE_URL';
 import { TbHorse } from 'react-icons/tb';
 import { FaEye, FaEyeDropper, FaEyeSlash } from 'react-icons/fa';
 
-const LoginOwner = () => {
+const Loginagency = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -51,7 +51,7 @@ const LoginOwner = () => {
 
     try {
       const response = await axios.post(
-        `${BASE_URL}/api/factoryOwner/ownerLogin`,
+        `${BASE_URL}/api/agency/loginAgency`,
         {
           email,
           password,
@@ -90,7 +90,7 @@ const LoginOwner = () => {
   }
 
   const handleagency=()=>{
-    navigate("/agencylogin")
+    navigate("/")
   }
 
   return (
@@ -101,7 +101,7 @@ const LoginOwner = () => {
           <strong className='mr-1'>CargoConnect</strong><span><img width={65} className='flex items-center justify-center' src="/logo.gif" /></span>
         </div>
         
-        <h1 className="text-2xl font-bold text-center">Factory Login</h1>
+        <h1 className="text-2xl font-bold text-center">Agency Login</h1>
         <div className="space-y-4 p-5">
           <div>
             <label htmlFor="email" className="block mb-1 text-gray-600">Email</label>
@@ -143,7 +143,7 @@ const LoginOwner = () => {
             <span className='cursor-pointer' onClick={handleregnav}>Register</span>
           </div>
           <div className='flex items-center justify-between opacity-60 '>
-            <span className='cursor-pointer' onClick={handleagency}>Login as agency</span>
+            <span className='cursor-pointer' onClick={handleagency}>Login as factory</span>
           </div>
         </div>
       </div>
@@ -151,4 +151,4 @@ const LoginOwner = () => {
   );
 };
 
-export default LoginOwner;
+export default Loginagency;

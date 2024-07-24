@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { BASE_URL } from "../BASE_URL";
 
@@ -12,6 +13,7 @@ const Registrationpage = () => {
   const [country, setCountry] = useState("");
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async () => {
     if (!name) {
@@ -63,7 +65,7 @@ const Registrationpage = () => {
       });
       return;
     }
-
+  
     try {
       const response = await axios.post(
         `${BASE_URL}/api/factoryOwner/addFactoryOwner`,
@@ -82,24 +84,46 @@ const Registrationpage = () => {
           },
         }
       );
+  
       if (response.status !== 200) {
         throw new Error("Registration failed");
       }
-      localStorage.setItem("token", response.owner._id);
+  
+      // Log the response to ensure it contains the expected data
+      console.log('Response:', response.data);
+  
+      // Store the owner ID in local storage
+      localStorage.setItem("token", response.data.owner._id);
+  
+      // Display success message
       toast.success("Registration Successful!", {
         position: "bottom-right",
         autoClose: 1000,
       });
+  
+      // Log navigation attempt
+      console.log('Navigating to addfactory with ID:', response.data.owner._id);
+  
+      // Navigate to the add factory page after a delay
       setTimeout(() => {
-        navigate("/addfactory",{state:{id:response.owner._id}});
+        navigate("/addfactory", { state: { id: response.data.owner._id } });
       }, 2000);
+  
     } catch (error) {
+      // Log the error message and response if available
+      console.error('Error:', error.message);
+      if (error.response) {
+        console.error('Error Response:', error.response);
+      }
+  
+      // Display error message
       toast.error("Registration failed", {
         position: "bottom-right",
         autoClose: 1000,
       });
     }
   };
+  
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
