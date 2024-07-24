@@ -129,7 +129,7 @@ const Registrationpage = () => {
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <ToastContainer />
       <div className="w-full max-w-md rounded-xl bg-white shadow-md">
-      <div className="flex justify-center mb-2 text-2xl text-white items-center bg-purple-600 rounded-tl-lg rounded-tr-lg">
+      <div className="flex justify-center mb-2 text-2xl text-white items-center bg-black rounded-tl-lg rounded-tr-lg">
           <strong className='mr-1'>CargoConnect</strong><span><img width={65} className='flex items-center justify-center' src="/logo.gif" /></span>
         </div>
         <h1 className="text-2xl font-bold text-center">Register</h1>
@@ -206,7 +206,7 @@ const Registrationpage = () => {
           </div>
           <button
             onClick={handleSubmit}
-            className="w-full px-4 py-1 font-bold text-white bg-indigo-600 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring focus:ring-indigo-200"
+            className="w-full px-4 py-1 font-bold text-white bg-black rounded-md hover:bg-gray-800 focus:outline-none focus:ring focus:ring-indigo-200"
           >
             Save & Next
           </button>

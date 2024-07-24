@@ -97,7 +97,7 @@ const Loginagency = () => {
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <ToastContainer />
       <div className="w-full max-w-md space-y-3 rounded-lg bg-white shadow-md">
-      <div className="flex w-full text-2xl justify-center mb-6 text-[25px] items-center text-white bg-purple-600 style rounded-tl-lg rounded-tr-lg">
+      <div className="flex w-full text-2xl justify-center mb-6 text-[25px] items-center text-white bg-black style rounded-tl-lg rounded-tr-lg">
           <strong className='mr-1'>CargoConnect</strong><span><img width={65} className='flex items-center justify-center' src="/logo.gif" /></span>
         </div>
         
@@ -134,7 +134,7 @@ const Loginagency = () => {
           </div>
           <button
             onClick={handleLogin}
-            className="w-full px-4 py-2 font-bold text-white bg-indigo-600 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring focus:ring-indigo-200"
+            className="w-full px-4 py-2 font-bold text-white bg-black rounded-md hover:bg-gray-800 focus:outline-none focus:ring focus:ring-indigo-200"
           >
             Login
           </button>
